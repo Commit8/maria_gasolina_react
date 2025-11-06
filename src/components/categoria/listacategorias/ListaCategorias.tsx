@@ -15,7 +15,7 @@ function ListaCategorias() {
   useEffect(() => {
     buscarCategorias();
   }, [categorias.length]);
-
+ 
   async function buscarCategorias() {
     try {
       setIsLoading(true);

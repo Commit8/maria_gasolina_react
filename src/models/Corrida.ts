@@ -5,4 +5,5 @@ export default interface Corrida {
   distancia: number;
   valorcorrida: number;
   categoria: Categoria;
+  cancelada?: boolean;
 }
