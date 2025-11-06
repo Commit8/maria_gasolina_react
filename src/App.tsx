@@ -23,12 +23,11 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/categorias" element={<ListaCategorias />} />
             <Route path="/cadastrarcategoria" element={<FormCategoria />} />
-            <Route path="/atualizarcorrida/:id" element={<CadastrarCorrida />} />
-            <Route path="/editarCategoria/:id" element={<FormCategoria />} />
+            <Route path="/editarcategoria/:id" element={<FormCategoria />} />
             <Route path="/deletarcategoria/:id" element={<DeletarCategoria />} />
             <Route path="/corridas" element={<ListaCorrida />} />
             <Route path="/cadastrarcorrida" element={<CadastrarCorrida />} />
-
+            <Route path="/atualizarcorrida/:id" element={<CadastrarCorrida />} />
             <Route path="/cancelarcorrida/:id" element={<CancelarCorrida />} />
           </Routes>
         </div>
