@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { buscar } from "../../../services/Service";
 import { SyncLoader } from "react-spinners";
 import type Corrida from "../../../models/Corrida";
+// import {ToastAlerta} from "../../../utils/ToastAlerta"
 
 const ListaCorrida = () => {
 
@@ -18,7 +19,8 @@ const ListaCorrida = () => {
 
             await buscar("/corridas", setCorridas)
         } catch(error: any){
-            alert("Não há Corridas")
+            alert('não há Corridas')
+            // ToastAlerta("Não há Corridas!", 'erro')
         } finally{
             setIsLoading(false);
         }
