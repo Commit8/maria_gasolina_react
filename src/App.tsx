@@ -9,6 +9,7 @@ import Home from "./pages/home/Home";
 import ListaCategorias from "./components/categoria/listacategorias/ListaCategorias";
 import FormCategoria from "./components/categoria/formcategoria/FormCategoria";
 import DeletarCategoria from "./components/categoria/deletarcategoria/DeletarCategoria";
+import CadastrarCorrida from "./pages/cadastrarCorrida/CadastrarCorrida";
 
 function App() {
   return (
@@ -21,12 +22,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/categorias" element={<ListaCategorias />} />
-            <Route path="/cadastrarCategoria" element={<FormCategoria />} />
-            <Route path="/atualizarcorrida/:id" element={<FormCorrida />} />
+            <Route path="/cadastrarcategoria" element={<FormCategoria />} />
+            <Route path="/atualizarcorrida/:id" element={<CadastrarCorrida />} />
             <Route path="/editarCategoria/:id" element={<FormCategoria />} />
-            <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+            <Route path="/deletarcategoria/:id" element={<DeletarCategoria />} />
             <Route path="/corridas" element={<ListaCorrida />} />
-            <Route path="/cadastrarcorrida" element={<FormCorrida />} />
+            <Route path="/cadastrarcorrida" element={<CadastrarCorrida />} />
 
             <Route path="/cancelarcorrida/:id" element={<CancelarCorrida />} />
           </Routes>

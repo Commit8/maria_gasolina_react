@@ -7,7 +7,7 @@ function CadastrarCorrida() {
     
   return (
     <>
-      <div className="bg-[#F5F3F4] flex justify-center h-screen">
+      <div className="bg-[#F5F3F4] flex justify-center">
         <div className="container grid grid-cols-2 text-white">
           <div className="flex flex-col gap-4 items-center justify-center py-4">
             <div className="flex justify-around gap-4 w-full">
