@@ -3,8 +3,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import ClipLoader from "react-spinners/ClipLoader";
-import { Categoria } from "../../../models/Categoria";
+import type Categoria from "../../../models/Categoria";
 import { buscar, deletar } from "../../../services/Service";
+
 
 function DeletarCategoria() {
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ function DeletarCategoria() {
             alert("Categoria apagada com sucesso!");
         } catch (error: any) {
             if (error.toString().includes("401")) {
-                navigate("/");
+                navigate("/categorias");
             } else {
                 alert("Erro ao deletar a categoria.");
             }
@@ -63,11 +64,11 @@ function DeletarCategoria() {
 
             <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
                 <header className="py-2 px-6 bg-[#4A70A9] text-white font-bold text-2xl">
-                    {categoria.nome}
+                    {categoria.veiculo}
                 </header>
 
                 <p className="p-8 text-3xl bg-slate-200 h-full">
-                    {categoria.descricao}
+                    {categoria.taxaGasolina}
                 </p>
 
                 <div className="flex">

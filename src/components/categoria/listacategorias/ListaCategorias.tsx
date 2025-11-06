@@ -1,9 +1,11 @@
-import {useEffect, useState} from "react";
-import {useNavigate} from "react-router-dom";
-import {SyncLoader} from "react-spinners";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { SyncLoader } from "react-spinners";
 import type Categoria from "../../../models/Categoria";
-import {buscar} from "../../../services/Service";
-import { CardCategoria } from "../cardcategoria/CardCategoria";
+import { buscar } from "../../../services/Service";
+import CardCategoria from "../cardcategoria/CardCategoria";
+
 
 function ListaCategorias() {
   const navigate = useNavigate();
