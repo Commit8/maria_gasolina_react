@@ -1,29 +1,36 @@
- import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import CardDevs from "../../components/carddevs/CardDevs";
 
 const Home = () => {
-     const navigate = useNavigate();
+  const navigate = useNavigate();
 
-     const handleCadastrarCorrida = () => {
-       navigate('/cadastrarcorrida')
-     }
+  const handleCadastrarCorrida = () => {
+    navigate("/cadastrarcorrida");
+  };
   return (
     <>
       <div className="bg-indigo-500 flex flex-col justify-center items-center">
-        <h1 className="pt-30 font-bold text-4xl">
+        <h1 className="md:pt-30 font-bold text-4xl ">
           Viaje com quem vai na mesma direção — simples, seguro e econômico.
         </h1>
 
-        <div className="container bg-white mt-40 rounded-t-3xl pt-5">
+        <div className="sm:container bg-white mt-40 rounded-t-3xl md:pt-5">
           <div className="w-full flex justify-center">
-            <button className="w-40 cursor-pointer bg-pink-500 rounded py-2 hover:bg-pink-700" onClick={handleCadastrarCorrida}>
+            <button
+              className="w-40 cursor-pointer font-semibold bg-[#D97652] rounded py-2 hover:bg-[#d65b2e]"
+              onClick={handleCadastrarCorrida}
+            >
               Cadastrar Corrida
             </button>
           </div>
 
-          <div className="w-full my-10 p-5 justify-center">
-            <h2 className="font-bold text-2xl pb-10">Como Funciona</h2>
-            <div className="grid grid-rows-3 gap-2 justify-center">
-              <div className="bg-white grid grid-cols-3 rounded-2xl w-2xl border border-slate-400 shadow-md">
+          <div className="w-full md:my-10 p-5 justify-center">
+
+            <h2 className="text-4xl font-extrabold mb-12 text-center text-shadow-md">Como Funciona</h2>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-2 justify-center">
+
+              <div className="bg-white grid grid-cols-3 rounded-2xl w-2md border border-slate-400 shadow-md">
                 <div className="bg-[#97bda5] w-full flex justify-center items-center rounded-l-2xl">
                   <img
                     src="https://ik.imagekit.io/Disturbedmoss/City%20driver-rafiki.svg?updatedAt=1762451788880"
@@ -32,14 +39,14 @@ const Home = () => {
                   />
                 </div>
                 <div className="w-full col-span-2 pl-2 pt-2 gap-4">
-                  <h3 className="font-bold">Motoristas publicam seu destino</h3>
+                  <h3 className="md:text-xl font-bold">Motoristas publicam seu destino</h3>
                   <p className="text-[#3d3d3d]">
-                    Mais de 500 mil motoristas cadastrados em todo Brasil
+                    Junte-se a mais de 500 mil motoristas cadastrados em todo Brasil.
                   </p>
                 </div>
               </div>
 
-              <div className="bg-white grid grid-cols-3 rounded-2xl w-2xl border border-slate-400 shadow-md">
+              <div className="bg-white grid grid-cols-3 rounded-2xl w-2md border border-slate-400 shadow-md">
                 <div className="bg-[#97bda5] w-full flex justify-center items-center rounded-l-2xl">
                   <img
                     src="https://ik.imagekit.io/Disturbedmoss/Navigation-pana%20(1).svg?updatedAt=1762451789146"
@@ -48,7 +55,7 @@ const Home = () => {
                   />
                 </div>
                 <div className="w-full col-span-2 pl-2 pt-2 gap-4">
-                  <h3 className="font-bold">
+                  <h3 className="md:text-xl font-bold">
                     Passageiros demonstram interesse
                   </h3>
                   <p className="text-[#3d3d3d]">
@@ -57,7 +64,7 @@ const Home = () => {
                 </div>
               </div>
 
-              <div className="bg-white grid grid-cols-3 rounded-2xl w-2xl border border-slate-400 shadow-md">
+              <div className="bg-white grid grid-cols-3 rounded-2xl w-2md border border-slate-400 shadow-md">
                 <div className="bg-[#97bda5] w-full flex justify-center items-center rounded-l-2xl">
                   <img
                     src="https://ik.imagekit.io/Disturbedmoss/Car%20driving-pana.svg?updatedAt=1762455128383"
@@ -66,29 +73,42 @@ const Home = () => {
                   />
                 </div>
                 <div className="w-full col-span-2 pl-2 pt-2 gap-4">
-                  <h3 className="font-bold">
+                  <h3 className="md:text-xl font-bold">
                     Vocês combinam o valor e seguem juntos
                   </h3>
                   <p className="text-[#3d3d3d]">
-                    Mais de 1 milhão de usuarios ativos
+                    Mais de 20 milhões de viagens já foram realizadas em 2025.
                   </p>
                 </div>
               </div>
+
+              <div className="bg-white grid grid-cols-3 rounded-2xl md:w-2md border border-slate-400 shadow-md">
+                <div className="bg-[#97bda5] w-full flex justify-center items-center rounded-l-2xl">
+                  <img
+                    src="https://ik.imagekit.io/Disturbedmoss/Globalization-pana.svg?updatedAt=1762466905736"
+                    alt="Pessoas conectadas ao redor do mundo"
+                    className="aspect-auto size-50"
+                  />
+                </div>
+                <div className="w-full col-span-2 pl-2 pt-2 gap-4">
+                  <h3 className="md:text-xl font-bold">
+                    Mobilidade que conecta pessoas e destinos
+                  </h3>
+                  <p className="text-[#3d3d3d]">
+                    Mais de 100 cidades conectadas todos os dias por meio de viagens compartilhadas.
+                  </p>
+                </div>
+              </div>
+
             </div>
           </div>
 
-          <div className="w-full bg-[#6EA87C] py-12 px-6 text-white">
-            {/* Cor de fundo levemente mais vibrante e padding vertical maior */}
-
+          <div className="w-full bg-[#6EA87C] py-12 md:px-6 text-white">
             <h2 className="text-4xl font-extrabold mb-12 text-white text-center text-shadow-md">
-              {/* Título maior, negrito e centralizado. Usei um amarelo como contraste! */}
               Por que usar?
             </h2>
 
             <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {/* Usando gap maior e centralizando o grid em telas grandes */}
-
-              {/* Cartão de Sustentabilidade */}
               <div className="bg-white p-6 shadow-xl rounded-2xl transition duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
                 <h3 className="text-xl font-bold mb-2 text-[#468A57]">
                   Sustentabilidade
@@ -98,7 +118,6 @@ const Home = () => {
                 </p>
               </div>
 
-              {/* Cartão de Segurança */}
               <div className="bg-white p-6 shadow-xl rounded-2xl transition duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
                 <h3 className="text-xl font-bold mb-2 text-[#468A57]">
                   Segurança e Transparência.
@@ -109,7 +128,6 @@ const Home = () => {
                 </p>
               </div>
 
-              {/* Cartão de Economia */}
               <div className="bg-white p-6 shadow-xl rounded-2xl transition duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
                 <h3 className="text-xl font-bold mb-2 text-[#468A57]">
                   Economize
@@ -119,7 +137,6 @@ const Home = () => {
                 </p>
               </div>
 
-              {/* Cartão de Flexibilidade */}
               <div className="bg-white p-6 shadow-xl rounded-2xl transition duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
                 <h3 className="text-xl font-bold mb-2 text-[#468A57]">
                   Flexibilidade Total.
@@ -131,9 +148,63 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="w-full p-5">
-            <h2 className="font-bold text-2xl pb-10">Sobre Nós</h2>
-            Imagens do time
+          <div className="p-5">
+            <h2 className="text-4xl font-extrabold mb-12 text-center text-shadow-md">Sobre Nós</h2>
+
+            <div className="flex flex-col justify-center">
+              <p className=" gap-1 pb-8 text-2xl text-center">
+                <span className="text-[#031D40] font-bold">Commit8 </span> é um
+                coletivo formado por oito desenvolvedores em início de carreira,
+                unidos por um propósito comum: aprender, crescer e construir
+                tecnologia com propósito. Acreditamos que cada linha de código
+                pode transformar ideias em impacto real e é com essa visão que
+                unimos nossas habilidades e criatividade para desenvolver
+                soluções inovadoras, colaborativas e acessíveis.
+              </p>
+            </div>
+            
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+              <CardDevs
+                foto="https://i.postimg.cc/B68Yd9VQ/IMG-3370-1.png"
+                nome="Pedro Emanuel"
+                link="https://github.com/pe3dru"
+              />
+              <CardDevs
+                foto="https://i.postimg.cc/mDpBQnpf/AP1Gcz-P13BKj8DKMb-Vd7Wv5-MVlqh-Pyh-b-MZ19v4e-Snwsc6Be-Kligbl-IA7ar-EAw694-h925-s-no-gm.png"
+                nome="Dandara Oliveira"
+                link="https://github.com/dan-olivnas"
+              />
+              <CardDevs
+                foto="https://i.postimg.cc/JnHM5qfw/IMG-20201009-235956-286.png"
+                nome="Laish Rodrigues"
+                link="https://github.com/L4ish"
+              />
+              <CardDevs
+                foto="https://i.postimg.cc/0QS1wNSv/IMG-20250315-013235-785.png"
+                nome="Gabriella Parra"
+                link="https://github.com/gabiparra05"
+              />
+              <CardDevs
+                foto="https://i.postimg.cc/QxmCt6sk/foto-apresentacao.png"
+                nome="Gabriel Messias"
+                link="https://github.com/gabrielmessias-dev"
+              />
+              <CardDevs
+                foto="https://i.postimg.cc/NGpv2Z9p/1746464117666-1.png"
+                nome="Akanni Silva"
+                link="https://github.com/Akanni-Silva"
+              />
+              <CardDevs
+                foto="https://i.postimg.cc/QxTSZTrR/perfil-Linkedin.png"
+                nome="Janielle Oliveira"
+                link="https://github.com/JanielleOliveira"
+              />
+              <CardDevs
+                foto="https://i.postimg.cc/2jqg33DH/20230407-153224.png"
+                nome="Vitor Hugo"
+                link="https://github.com/DisturbedMoss"
+              />
+            </div>
           </div>
         </div>
       </div>
