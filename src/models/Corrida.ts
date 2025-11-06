@@ -1,8 +1,8 @@
-import type Corrida from "./Corrida";
+import type Categoria from "./Categoria";
 
-export default interface Categoria {
+export default interface Corrida {
   id: number;
-  veiculo: string;
-  taxaGasolina: number;
-  corrida?: Corrida [] | null;
+  distancia: number;
+  valorcorrida: number;
+  categoria: Categoria;
 }
