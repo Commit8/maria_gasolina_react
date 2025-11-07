@@ -20,11 +20,11 @@ const Home = () => {
           <div className="absolute inset-0 z-10 bg-black/50"></div>
 
           <div className="md:w-1/2 lg:w-3/5 flex flex-col gap-5 sm:items-center md:items-start">
-            <h1 className="sm:pt-15 ml-10 md:absolute font-bold text-3xl sm:text-6xl z-10 text-white text-shadow-md">
+            <h1 className="sm:pt-30 ml-10 sm:absolute sm:top font-bold text-3xl sm:text-6xl z-10 text-white text-shadow-md">
               <p>Viaje com quem vai na mesma direção</p>simples, seguro e econômico.
             </h1>
 
-            <div className='md:absolute ml-10 w-30 h-40 sm:top-85 md:top-85 lg:top-65 md:left-30 z-20'>
+            <div className='md:absolute ml-10 w-30 h-40 sm:top-90 md:top-85 lg:top-70 md:left-30 z-20'>
               <button
                 className="w-40 cursor-pointer font-semibold bg-[#D97652] rounded py-2 hover:bg-[#d65b2e] z-20"
                 onClick={handleCadastrarCorrida}
@@ -45,7 +45,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="sm:container bg-[#FAF9F6] rounded-t-3xl md:pt-5">
+        <div className="w-full bg-[#FAF9F6] rounded-t-3xl md:pt-5 flex flex-col justify-center items-center">
           <div className="w-full md:my-10 p-5 justify-center">
             <h2 className="text-4xl font-extrabold mb-12 text-center text-shadow-md">
               Como Funciona
@@ -135,7 +135,7 @@ const Home = () => {
 
             <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="bg-white p-6 shadow-xl rounded-2xl transition duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
-                <h3 className="text-xl font-bold mb-2 text-[#468A57]">
+                <h3 className="text-xl font-bold mb-2 text-[#468A57] truncate">
                   Sustentabilidade
                 </h3>
                 <p className="text-gray-700">
@@ -154,7 +154,7 @@ const Home = () => {
               </div>
 
               <div className="bg-white p-6 shadow-xl rounded-2xl transition duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
-                <h3 className="text-xl font-bold mb-2 text-[#468A57]">
+                <h3 className="text-xl font-bold mb-2 text-[#468A57] truncate">
                   Economize
                 </h3>
                 <p className="text-gray-700">
@@ -163,7 +163,7 @@ const Home = () => {
               </div>
 
               <div className="bg-white p-6 shadow-xl rounded-2xl transition duration-300 transform hover:scale-[1.03] hover:shadow-2xl">
-                <h3 className="text-xl font-bold mb-2 text-[#468A57]">
+                <h3 className="text-xl font-bold mb-2 text-[#468A57] truncate">
                   Flexibilidade Total.
                 </h3>
                 <p className="text-gray-700">
@@ -173,9 +173,9 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="p-5">
+          <div className="p-5 w-full lg:4/5 xl:w-9/10 flex flex-col justify-center items-center">
             <h2 className="text-4xl font-extrabold mb-12 text-center text-shadow-md">
-              Sobre Nós
+              Time de desenvolvimento
             </h2>
 
             <div className="flex flex-col justify-center">
@@ -190,46 +190,62 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div className="w-full grid grid-cols-1 md:w-4/5 lg:w-full md:grid-cols-2 lg:grid-cols-4">
               <CardDevs
                 foto="https://i.postimg.cc/B68Yd9VQ/IMG-3370-1.png"
-                nome="Pedro Emanuel"
-                link="https://github.com/pe3dru"
+                nome="Pedro"
+                descricao="Definiu a estrutura dos dados dos colaboradores."
+                Githublink="https://github.com/pe3dru"
+                Linkedinlink="https://www.linkedin.com/in/pedroemanueln/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3Bj5MB0lwpSHeBF3z3XjfCIA%3D%3D"
               />
               <CardDevs
                 foto="https://i.postimg.cc/mDpBQnpf/AP1Gcz-P13BKj8DKMb-Vd7Wv5-MVlqh-Pyh-b-MZ19v4e-Snwsc6Be-Kligbl-IA7ar-EAw694-h925-s-no-gm.png"
-                nome="Dandara Oliveira"
-                link="https://github.com/dan-olivnas"
+                nome="Dandara"
+                descricao="Criou a estrutura inicial do projeto."
+                Githublink="https://github.com/dan-olivnas"
+                Linkedinlink="https://www.linkedin.com/in/nascimentodandara/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3Bj5MB0lwpSHeBF3z3XjfCIA%3D%3D"
               />
               <CardDevs
                 foto="https://i.postimg.cc/JnHM5qfw/IMG-20201009-235956-286.png"
-                nome="Laish Rodrigues"
-                link="https://github.com/L4ish"
+                nome="Laish"
+                descricao="Gerenciou cadastros e dados dos colaboradores."
+                Githublink="https://github.com/L4ish"
+                Linkedinlink="https://www.linkedin.com/in/laish-rodrigues/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3Bj5MB0lwpSHeBF3z3XjfCIA%3D%3D"
               />
               <CardDevs
                 foto="https://i.postimg.cc/0QS1wNSv/IMG-20250315-013235-785.png"
-                nome="Gabriella Parra"
-                link="https://github.com/gabiparra05"
+                nome="Gabriella"
+                descricao="Agrupou recursos voltados aos colaboradores."
+                Githublink="https://github.com/gabiparra05"
+                Linkedinlink="https://www.linkedin.com/in/gabriellabgparra/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3Bj5MB0lwpSHeBF3z3XjfCIA%3D%3D"
               />
               <CardDevs
                 foto="https://i.postimg.cc/QxmCt6sk/foto-apresentacao.png"
-                nome="Gabriel Messias"
-                link="https://github.com/gabrielmessias-dev"
+                nome="Gabriel"
+                descricao="Controlou ações ligadas aos colaboradores."
+                Githublink="https://github.com/gabrielmessias-dev"
+                Linkedinlink="https://www.linkedin.com/in/gabrielmessias-dev/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3Bj5MB0lwpSHeBF3z3XjfCIA%3D%3D"
               />
               <CardDevs
                 foto="https://i.postimg.cc/NGpv2Z9p/1746464117666-1.png"
-                nome="Akanni Silva"
-                link="https://github.com/Akanni-Silva"
+                nome="Akanni"
+                descricao="Organizou os módulos principais do sistema."
+                Githublink="https://github.com/Akanni-Silva"
+                Linkedinlink="https://www.linkedin.com/in/akannisilva/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3Bj5MB0lwpSHeBF3z3XjfCIA%3D%3D"
               />
               <CardDevs
                 foto="https://i.postimg.cc/QxTSZTrR/perfil-Linkedin.png"
-                nome="Janielle Oliveira"
-                link="https://github.com/JanielleOliveira"
+                nome="Janielle"
+                descricao="Iniciou o sistema e integrou suas partes."
+                Githublink="https://github.com/JanielleOliveira"
+                Linkedinlink="https://www.linkedin.com/in/janielleoliveira/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3Bj5MB0lwpSHeBF3z3XjfCIA%3D%3D"
               />
               <CardDevs
                 foto="https://i.postimg.cc/2jqg33DH/20230407-153224.png"
-                nome="Vitor Hugo"
-                link="https://github.com/DisturbedMoss"
+                nome="Vitor"
+                descricao="Reuniu informações sobre o sistema."
+                Githublink="https://github.com/DisturbedMoss"
+                Linkedinlink="https://www.linkedin.com/in/vitor-hugo-silva-7b6b14220/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BRAMpA09WQ8C6d7H0I%2BTfxw%3D%3D"
               />
             </div>
           </div>
