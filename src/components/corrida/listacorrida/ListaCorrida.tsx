@@ -58,8 +58,13 @@ const ListaCorrida = () => {
             <h2>Atividade</h2>
           </div>
           <div className="flex justify-center w-full my-4">
-            <div className="flex gap-3 rounded-3xl bg-[#6EA87C]  min-w-1/3  mx-auto p-3 text-white h-[60vh]  ">
-              <div className="container flex flex-col-reverse overflow-y-scroll thin-scroll">
+            <div className="flex gap-3 rounded-3xl bg-[#6EA87C]    mx-auto p-3 text-white h-[60vh]  ">
+              <div className="container flex flex-col-reverse overflow-y-scroll thin-scroll min-w-xl">
+                {isLoading && (
+                          <div className="flex justify-center items-center h-full">
+                            <SyncLoader color="#D97652" size={24} />
+                          </div>
+                        )}
                 {!isLoading && corridas.length === 0 && (
                   <span className="text-3xl text-center my-8">
                     Nenhuma corrida foi encontrada
