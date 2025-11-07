@@ -1,37 +1,36 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom"; // 🟩 Para redirecionar e ler ID
 import type Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormCategoria() {
-  const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
   const [categoria, setCategoria] = useState<Categoria>({
-  id: 0,
-  veiculo: "",
-  taxaGasolina: 0,
-});
+    id: 0,
+    veiculo: "",
+    taxaGasolina: 0,
+  });
 
+  const navigate = useNavigate(); 
+  const { id } = useParams(); 
+
+  
   async function buscarPorId(id: string) {
-    try {
-      await buscar(`/categorias/${id}`, setCategoria);
-    } catch {
-      ToastAlerta ("Erro ao buscar a categoria.", "erro");
-    }
+    await buscar(`/categorias/${id}`, setCategoria);
   }
 
   useEffect(() => {
-    if (id !== undefined){
-       buscarPorId(id);
-    } 
+    if (id !== undefined) {
+      buscarPorId(id);
+    }
   }, [id]);
+
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
     const { name, value } = e.target;
     setCategoria({
       ...categoria,
-       [name]: name === "taxaGasolina" ? Number(value) : value,
+      [name]: name === "taxaGasolina" ? Number(value) : value,
     });
   }
 
@@ -46,6 +45,7 @@ function FormCategoria() {
         await cadastrar(`/categorias`, categoria, setCategoria);
         ToastAlerta("Categoria cadastrada com sucesso!", "sucesso");
       }
+
       navigate("/categorias");
     } catch {
       ToastAlerta("Erro ao salvar a categoria. Verifique os campos e tente novamente.", "erro");
@@ -53,13 +53,13 @@ function FormCategoria() {
   }
 
   return (
-    <div className="flex justify-center mt-10">
+    <div className="min-h-screen flex justify-center items-center bg-[#FAF7F3] p-8">
       <form
-        className="bg-[#F2E4D8] shadow-md rounded-2xl p-6 w-full max-w-md border border-[#D97652]"
         onSubmit={onSubmit}
+        className="bg-[#F2E4D8] shadow-md rounded-2xl p-6 w-full max-w-lg border border-[#D97652]"
       >
         <h1 className="text-2xl font-bold text-center text-[#D97652] mb-4">
-          {id ? "Editar Categoria" : "Cadastrar Veículo"}
+          {id !== undefined ? "Editar Categoria" : "Cadastrar Categoria"}
         </h1>
 
         <input
@@ -67,23 +67,34 @@ function FormCategoria() {
           onChange={atualizarEstado}
           name="veiculo"
           placeholder="Veículo"
-          className="border border-[#4D5159] rounded p-2 w-full mb-3 text-[#0D0D0D] bg-[#F2E4D8] placeholder-[#4D5159] focus:outline-none focus:border-[#76A687]"
+          required
+          className="border border-[#4D5159] rounded p-2 w-full mb-3 bg-[#F2E4D8] text-[#0D0D0D] placeholder-[#4D5159]"
         />
 
         <input
           value={categoria.taxaGasolina}
           onChange={atualizarEstado}
           name="taxaGasolina"
-          placeholder="Taxa Gasolina"
+          placeholder="Taxa Gasolina (R$)"
           type="number"
-          className="border border-[#4D5159] rounded p-2 w-full mb-3 text-[#0D0D0D] bg-[#F2E4D8] placeholder-[#4D5159] focus:outline-none focus:border-[#76A687]"
+          required
+          className="border border-[#4D5159] rounded p-2 w-full mb-3 bg-[#F2E4D8] text-[#0D0D0D] placeholder-[#4D5159]"
         />
 
         <button
           type="submit"
           className="bg-[#76A687] text-[#F2E4D8] p-2 w-full rounded hover:bg-[#4D5159] transition font-semibold"
         >
-          {id ? "Atualizar" : "Cadastrar"}
+          {id !== undefined ? "Atualizar" : "Cadastrar"}
+        </button>
+
+        {/*Botão para voltar sem salvar */}
+        <button
+          type="button"
+          onClick={() => navigate("/categorias")}
+          className="mt-3 border border-[#4D5159] text-[#4D5159] p-2 w-full rounded hover:bg-[#4D5159] hover:text-[#F2E4D8] transition"
+        >
+          Voltar
         </button>
       </form>
     </div>
