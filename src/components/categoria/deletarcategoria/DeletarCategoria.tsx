@@ -54,43 +54,38 @@ function DeletarCategoria() {
     }
 
     return (
-        <div className="container w-1/3 mx-auto">
-            <h1 className="text-4xl text-center my-4">Deletar Categoria</h1>
+        <div className="bg-[#F2E4D8] p-6 rounded-2xl shadow-md flex flex-col justify-between border border-[#D97652]">
+  <div>
+    <h3 className="text-2xl font-bold text-[#D97652] mb-2 text-center">
+      {categoria.veiculo}
+    </h3>
+    <p className="text-[#0D0D0D] text-center text-xl">{categoria.taxaGasolina}</p>
+  </div>
 
-            <p className="text-center font-semibold mb-4">
-                Você tem certeza que deseja apagar esse categoria?
-            </p>
+  <p className="text-center font-semibold mt-4 mb-2">
+    Você tem certeza que deseja apagar essa categoria?
+  </p>
 
-            <div className="border flex flex-col rounded-2xl overflow-hidden justify-between">
-                <header className="py-2 px-6 bg-[#4A70A9] text-white font-bold text-2xl">
-                    {categoria.veiculo}
-                </header>
+  <div className="flex justify-center gap-4 mt-4">
+    <button
+      className="bg-[#D97652] text-[#F2E4D8] px-4 py-2 rounded-md hover:bg-[#b85a3d] transition w-1/2"
+      onClick={retornar}
+    >
+      Não
+    </button>
 
-                <p className="p-8 text-3xl bg-slate-200 h-full">
-                    {categoria.taxaGasolina}
-                </p>
-
-                <div className="flex">
-                    <button
-                        className="text-slate-100 bg-red-400 hover:bg-red-600 w-full py-2"
-                        onClick={retornar}
-                    >
-                        Não
-                    </button>
-
-                    <button
-                        className="w-full text-slate-100 bg-[#6D94C5] hover:bg-[#234C6A] flex items-center justify-center"
-                        onClick={deletarCategoria}
-                    >
-                        {isLoading ? (
-                            <ClipLoader color="#ffffff" size={24} />
-                        ) : (
-                            <span>Sim</span>
-                        )}
-                    </button>
-                </div>
-            </div>
-        </div>
+    <button
+      className="bg-[#0D0D0D] text-[#F2E4D8] px-4 py-2 rounded-md hover:bg-[#4D5159] transition w-1/2 flex items-center justify-center"
+      onClick={deletarCategoria}
+    >
+      {isLoading ? (
+        <ClipLoader color="#ffffff" size={24} />
+      ) : (
+        <span>Sim</span>
+      )}
+    </button>
+  </div>
+</div>
     );
 }
 
