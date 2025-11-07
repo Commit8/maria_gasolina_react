@@ -1,5 +1,5 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import type Categoria from "../../../models/Categoria";
 import type Corrida from "../../../models/Corrida";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
@@ -8,19 +8,19 @@ import { ClipLoader } from "react-spinners";
 
 interface FormCorridaProps {
   corridaSelecionada?: import("../../../models/Corrida").default;
+  onSubmitSuccess?: () => void; // callback opcional após sucesso no envio
 }
 
-function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
+function FormCorrida({
+  corridaSelecionada,
+  onSubmitSuccess,
+}: FormCorridaProps) {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [categorias, setCategorias] = useState<Categoria[]>([]);
-  const [categoria, setCategoria] = useState<Categoria>({
-    id: 0,
-    veiculo: "",
-    taxaGasolina: 0,
-  });
+  const [categoria, setCategoria] = useState<Categoria>({} as Categoria);
 
   const [corrida, setCorrida] = useState<Corrida>({} as Corrida);
 
@@ -46,7 +46,7 @@ function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
     }
   }
 
-  async function buscarCategorias(id: string) {
+  async function buscarCategorias() {
     try {
       await buscar(`/categorias`, setCategorias);
     } catch (error: any) {
@@ -89,16 +89,17 @@ function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
     navigate("/corridas");
   }
 
-  async function gerarNovaCorrida(e?: FormEvent<HTMLFormElement>) {
-    if (e && typeof e.preventDefault === "function") e.preventDefault();
+  async function gerarNovaCorrida(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
     setIsLoading(true);
 
     // Decide atualizar ou cadastrar com base no id presente no estado corrida
-    if (corrida && corrida.id !== undefined && corrida.id !== 0) {
+    if (id !== undefined) {
       try {
         await atualizar(`/corridas`, corrida, setCorrida);
 
         ToastAlerta("Corrida atualizada com sucesso", "sucesso");
+        onSubmitSuccess?.(); // chama callback se existir
       } catch (error: any) {
         if (error.toString().includes("400")) {
           navigate("/");
@@ -110,6 +111,7 @@ function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
       try {
         await cadastrar(`/corridas`, corrida, setCorrida);
         ToastAlerta("A Corrida foi cadastrada com sucesso!", "sucesso");
+        onSubmitSuccess?.(); // chama callback se existir
       } catch (error: any) {
         if (error.toString().includes("400")) {
           navigate("/");
@@ -124,10 +126,12 @@ function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
 
   const carregandoVeiculo = categoria.veiculo === "";
 
+  
+
   return (
     <div className="container flex flex-col mx-auto items-center text-black">
       <h1 className="text-4xl text-center my-8">
-        {corrida && corrida.id ? "Editar Corrida" : "Cadastrar Corrida"}
+        {corrida.id ? "Editar Corrida" : "Cadastrar Corrida"}
       </h1>
 
       <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaCorrida}>
@@ -135,6 +139,7 @@ function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
           <label htmlFor="distancia">distancia Km's proposta:</label>
           <input
             type="number"
+            min="0"
             placeholder="Selecione o valor em Km's"
             name="distancia"
             required
@@ -161,9 +166,16 @@ function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
             ))}
           </select>
         </div>
+        <div className="flex flex-col gap-2">
+          <label htmlFor="valorCorrida">Valor Sugerido</label>
+          <div className="border-2 p-2 border-[#D97652] rounded text-center">
+            <output>{corrida.valorCorrida}</output>
+          </div>
+        </div>
+
         <button
           type="submit"
-          className="rounded disabled:bg-slate-200 bg-[#D97652] hover:bg-[#cf4310]
+          className="rounded disabled:bg-slate-200 bg-[#44a666] hover:bg-[#2de06c]
                                text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
           disabled={carregandoVeiculo}
         >
@@ -171,11 +183,21 @@ function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
             <ClipLoader color="#ffffff" size={24} />
           ) : (
             <div>
-              {corrida.valorcorrida}
               <span>{corrida && corrida.id ? "Atualizar" : "Cadastrar"}</span>
             </div>
           )}
         </button>
+        {corrida && corrida.id && (
+          <Link to={`/cancelarcorrida/${corrida.id}`}>
+            {" "}
+            <button
+              className="rounded disabled:bg-slate-200 bg-[#D97652] hover:bg-[#cf4310]
+                               text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
+            >
+              Cancelar
+            </button>
+          </Link>
+        )}
       </form>
       <img
         src="https://i.postimg.cc/yNF7gMSN/Order-ride-amico-1-1.png"
