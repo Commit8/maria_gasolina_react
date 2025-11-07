@@ -33,8 +33,7 @@ function CardCorrida({ corrida, onEdit }: CardCorridaProps) {
         />
         <div className=" w-full mx-9">
           {" "}
-          <h2>Veiculo: {corrida.categoria.veiculo}</h2>
-          <h3>Distancia Media: {corrida.distancia} Km</h3>
+          <p>Distancia Media: {corrida.distancia} Km</p>
           <p>
             Criado em{" "}
             {new Intl.DateTimeFormat("pt-br", {
