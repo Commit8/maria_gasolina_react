@@ -58,13 +58,14 @@ const ListaCorrida = () => {
             <h2>Atividade</h2>
           </div>
           <div className="flex justify-center w-full my-4">
-            <div className="container flex flex-col">
-              {!isLoading && corridas.length === 0 && (
-                <span className="text-3xl text-center my-8">
-                  Nenhuma corrida foi encontrada
-                </span>
-              )}
-              <div className="flex flex-cols-1  flex-col-reverse gap-3 rounded-3xl bg-[#6EA87C]  min-w-1/3  mx-auto p-3 text-white">
+            <div className="flex gap-3 rounded-3xl bg-[#6EA87C]  min-w-1/3  mx-auto p-3 text-white">
+              <div className="container flex flex-col-reverse">
+                {!isLoading && corridas.length === 0 && (
+                  <span className="text-3xl text-center my-8">
+                    Nenhuma corrida foi encontrada
+                  </span>
+                )}
+
                 {corridas.map((corrida) => (
                   <CardCorrida
                     key={corrida.id}
