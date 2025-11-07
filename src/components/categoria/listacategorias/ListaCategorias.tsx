@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { SyncLoader } from "react-spinners";
-import { useNavigate } from "react-router-dom"; // 🟩 Import para redirecionar entre telas
+import { useNavigate } from "react-router-dom";
 import type Categoria from "../../../models/Categoria";
 import { buscar, deletar } from "../../../services/Service";
 import CardCategoria from "../cardcategoria/CardCategoria";

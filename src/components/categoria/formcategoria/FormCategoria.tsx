@@ -1,5 +1,5 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate, useParams } from "react-router-dom"; // 🟩 Para redirecionar e ler ID
+import { useNavigate, useParams } from "react-router-dom"; 
 import type Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
@@ -8,7 +8,7 @@ function FormCategoria() {
   const [categoria, setCategoria] = useState<Categoria>({
     id: 0,
     veiculo: "",
-    taxaGasolina: 0,
+    taxaGasolina: "",
   });
 
   const navigate = useNavigate(); 
@@ -53,7 +53,9 @@ function FormCategoria() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-[#FAF7F3] p-8">
+    <div className="min-h-screen flex justify-center items-center 
+     bg-[url('https://ik.imagekit.io/Disturbedmoss/joey-kyber-45FJgZMXCK8-unsplash.jpg?updatedAt=1762470445952')] 
+  bg-cover bg-center bg-no-repeat p-8">
       <form
         onSubmit={onSubmit}
         className="bg-[#F2E4D8] shadow-md rounded-2xl p-6 w-full max-w-lg border border-[#D97652]"
@@ -72,7 +74,7 @@ function FormCategoria() {
         />
 
         <input
-          value={categoria.taxaGasolina}
+          value={categoria.taxaGasolina === 0 ? "" : categoria.taxaGasolina}
           onChange={atualizarEstado}
           name="taxaGasolina"
           placeholder="Taxa Gasolina (R$)"

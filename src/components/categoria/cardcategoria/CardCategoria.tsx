@@ -19,7 +19,6 @@ function CardCategoria({ categoria, onEditar}: CardCategoriaProps) {
         </p>
       </div>
 
-      {/*Botões na parte inferior do card */}
       <div className="flex items-center gap-2 mt-4">
         <button
           onClick={onEditar}
