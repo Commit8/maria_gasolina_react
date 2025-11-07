@@ -1,4 +1,9 @@
+import { useEffect, useState } from "react";
 import type Corrida from "../../../models/Corrida";
+
+interface HoraCorrida{
+  id: number;
+}
 
 interface CardCorridaProps {
   corrida: Corrida;
@@ -6,7 +11,21 @@ interface CardCorridaProps {
 }
 
 function CardCorrida({ corrida, onEdit }: CardCorridaProps) {
-  const data = new Date().getTime()
+  const [dataCriacao, setDataCriacao] = useState<number | null>(null);
+
+  useEffect(() => {
+    const chave = `corrida_${corrida.id}_data`;
+    const existente = localStorage.getItem(chave);
+
+    if(existente) {
+      setDataCriacao(Number(existente));
+    }else{
+      const agora = Date.now();
+      localStorage.setItem(chave, String(agora));
+      setDataCriacao(agora);
+    }
+  }, [corrida.id]);
+
   return (
     <div className="flex flex-col rounded overflow-hidden justify-between">
       {" "}
@@ -22,7 +41,7 @@ function CardCorrida({ corrida, onEdit }: CardCorridaProps) {
           <p>Criado em {new Intl.DateTimeFormat("pt-br", {
               dateStyle: "medium",
               timeStyle: "medium",
-            }).format(new Date(data))}</p> 
+            }).format(new Date(dataCriacao))}</p> 
             <p>Valor Sugerido: R${corrida.valorCorrida}</p>
           <hr className="border-white w-full" />
         </div>

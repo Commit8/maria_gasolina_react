@@ -122,7 +122,7 @@ function FormCorrida({
     }
     setIsLoading(false);
     setCorrida({
-      id: 0,
+      id: null,
       distancia: " ",
       valorCorrida: " ",
       categoria: {} as Categoria,
