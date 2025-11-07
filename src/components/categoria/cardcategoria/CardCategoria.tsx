@@ -11,14 +11,15 @@ function CardCategoria({ categoria }: CardCategoriaProps) {
     <div className="bg-[#F2E4D8] p-6 rounded-2xl shadow-md flex flex-col justify-between border border-[#D97652]">
       <div>
         <h3 className="text-2xl font-bold text-[#D97652] mb-2 text-center">
+          <span>Tipo do veículo: </span>
           {categoria.veiculo}
         </h3>
-        <p className="text-[#0D0D0D] text-center">{categoria.veiculo}</p>
+        <p className="text-[#0D0D0D] text-center"><span>Taxa por KM: </span>{categoria.taxaGasolina}</p>
       </div>
 
       <div className="flex justify-center gap-4 mt-4">
         <Link
-          to={`/editarCategoria/${categoria.id}`}
+          to={`/editarcategoria/${categoria.id}`}
           className="bg-[#76A687] text-[#F2E4D8] px-4 py-2 rounded-md hover:bg-[#4D5159] transition"
         >
           Editar

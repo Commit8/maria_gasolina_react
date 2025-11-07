@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import CancelarCorrida from "./components/corrida/cancelarcorrida/CancelarCorrida";
-import FormCorrida from "./components/corrida/fomsCorrida/FormsCorrida";
 import ListaCorrida from "./components/corrida/listacorrida/ListaCorrida";
 import Footer from "./components/footer/Footer";
 import Navbar from "./components/navbar/Navbar";
@@ -21,13 +20,18 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/categorias" element={<ListaCategorias />} />
-            <Route path="/cadastrarCategoria" element={<FormCategoria />} />
-            <Route path="/atualizarcorrida/:id" element={<FormCorrida />} />
-            <Route path="/editarCategoria/:id" element={<FormCategoria />} />
-            <Route path="/deletarCategoria/:id" element={<DeletarCategoria />} />
+            <Route path="/cadastrarcategoria" element={<FormCategoria />} />
+            <Route path="/editarcategoria/:id" element={<FormCategoria />} />
+            <Route
+              path="/deletarCategoria/:id"
+              element={<DeletarCategoria />}
+            />
             <Route path="/corridas" element={<ListaCorrida />} />
-            <Route path="/cadastrarcorrida" element={<FormCorrida />} />
-
+            <Route path="/cadastrarcorrida" element={<ListaCorrida />} />
+            <Route
+              path="/atualizarcorrida/:id"
+              element={<ListaCorrida />}
+            />
             <Route path="/cancelarcorrida/:id" element={<CancelarCorrida />} />
           </Routes>
         </div>
