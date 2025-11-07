@@ -44,7 +44,7 @@ const ListaCorrida = () => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 place-items-center ">
         <div className="rounded-3xl bg-white border-[#76A687] border min-w-1/3 flex flex-col p-3 my-6 gap-3 text-black">
           {/* div 42: local para o formulário que será preenchido ao clicar em Editar */}
           <FormCorrida
@@ -58,8 +58,8 @@ const ListaCorrida = () => {
             <h2>Atividade</h2>
           </div>
           <div className="flex justify-center w-full my-4">
-            <div className="flex gap-3 rounded-3xl bg-[#6EA87C]  min-w-1/3  mx-auto p-3 text-white">
-              <div className="container flex flex-col-reverse">
+            <div className="flex gap-3 rounded-3xl bg-[#6EA87C]  min-w-1/3  mx-auto p-3 text-white h-[60vh]  ">
+              <div className="container flex flex-col-reverse overflow-y-scroll thin-scroll">
                 {!isLoading && corridas.length === 0 && (
                   <span className="text-3xl text-center my-8">
                     Nenhuma corrida foi encontrada
