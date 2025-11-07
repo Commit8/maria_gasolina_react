@@ -23,7 +23,7 @@ function CardCorrida({ corrida, onEdit }: CardCorridaProps) {
   }, [corrida.id]);
 
   return (
-    <div className="flex flex-col rounded overflow-hidden justify-between">
+    <div className="flex flex-col rounded my-3 justify-between">
       {" "}
       <div className="flex gap- items-center justify-center">
         <img
