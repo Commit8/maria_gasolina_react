@@ -14,8 +14,8 @@ function CardCategoria({ categoria, onEditar}: CardCategoriaProps) {
         <h3 className="text-xl font-bold text-[#D97652] mb-2 text-center">
           {categoria.veiculo}
         </h3>
-        <p className="text-[#0D0D0D] text-center">
-          Taxa Gasolina: R${categoria.taxaGasolina}
+        <p className="font-semibold text-[#0D0D0D] text-center">
+          Taxa por KM: <span className="font-semibold text-[#D97652]">R${categoria.taxaGasolina}</span>
         </p>
       </div>
 

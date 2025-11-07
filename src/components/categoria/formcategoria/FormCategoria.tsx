@@ -1,5 +1,5 @@
 import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
-import { useNavigate, useParams } from "react-router-dom"; 
+import { useNavigate, useParams } from "react-router-dom";
 import type Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
@@ -77,10 +77,13 @@ function FormCategoria() {
           value={categoria.taxaGasolina === 0 ? "" : categoria.taxaGasolina}
           onChange={atualizarEstado}
           name="taxaGasolina"
-          placeholder="Taxa Gasolina (R$)"
+          placeholder="Taxa por KM (R$)"
+          step="0.01" 
           type="number"
+          min="0"
+          inputMode="decimal"
           required
-          className="border border-[#4D5159] rounded p-2 w-full mb-3 bg-[#F2E4D8] text-[#0D0D0D] placeholder-[#4D5159]"
+          className="border border-[#4D5159] rounded p-2 w-full mb-3 bg-[#F2E4D8] text-[#0D0D0D] placeholder-[#4D5159] appearance-none"
         />
 
         <button
