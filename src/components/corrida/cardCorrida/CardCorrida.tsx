@@ -1,10 +1,6 @@
 import { useEffect, useState } from "react";
 import type Corrida from "../../../models/Corrida";
 
-interface HoraCorrida{
-  id: number;
-}
-
 interface CardCorridaProps {
   corrida: Corrida;
   onEdit?: (id: number) => void;
