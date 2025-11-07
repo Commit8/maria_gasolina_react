@@ -20,11 +20,11 @@ const Home = () => {
           <div className="absolute inset-0 z-10 bg-black/50"></div>
 
           <div className="md:w-1/2 lg:w-3/5 flex flex-col gap-5 sm:items-center md:items-start">
-            <h1 className="sm:pt-30 ml-10 sm:absolute sm:top font-bold text-3xl sm:text-6xl z-10 text-white text-shadow-md">
+            <h1 className="md:pt-20 lg:30 ml-10 md:absolute sm:top font-bold text-3xl sm:text-6xl z-10 text-white text-shadow-md">
               <p>Viaje com quem vai na mesma direção</p>simples, seguro e econômico.
             </h1>
 
-            <div className='md:absolute ml-10 w-30 h-40 sm:top-90 md:top-85 lg:top-70 md:left-30 z-20'>
+            <div className='md:absolute ml-10 w-30 h-40 sm:top-90 lg:top-70 md:left-30 z-20'>
               <button
                 className="w-40 cursor-pointer font-semibold bg-[#D97652] rounded py-2 hover:bg-[#d65b2e] z-20"
                 onClick={handleCadastrarCorrida}
@@ -34,7 +34,7 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="absolute bottom-0 left-0 w-full h-40 md:h-28 z-30">
+          <div className="absolute bottom-0 left-0 w-full h-40 md:h-28 z-20">
             <svg
               viewBox="0 0 1000 100"
               preserveAspectRatio="none"
