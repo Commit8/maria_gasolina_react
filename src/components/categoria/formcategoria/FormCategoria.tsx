@@ -2,6 +2,7 @@ import { useEffect, useState, type ChangeEvent, type FormEvent } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import type Categoria from "../../../models/Categoria";
 import { atualizar, buscar, cadastrar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function FormCategoria() {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ function FormCategoria() {
     try {
       await buscar(`/categorias/${id}`, setCategoria);
     } catch {
-      alert("Erro ao buscar categoria.");
+      ToastAlerta ("Erro ao buscar a categoria.", "erro");
     }
   }
 
@@ -40,14 +41,14 @@ function FormCategoria() {
     try {
       if (id !== undefined) {
         await atualizar(`/categorias`, categoria, setCategoria);
-        alert("Categoria atualizada com sucesso!");
+        ToastAlerta("Categoria atualizada com sucesso!", "sucesso");
       } else {
         await cadastrar(`/categorias`, categoria, setCategoria);
-        alert("Categoria cadastrada com sucesso!");
+        ToastAlerta("Categoria cadastrada com sucesso!", "sucesso");
       }
       navigate("/categorias");
     } catch {
-      alert("Erro ao salvar a categoria. Verifique os campos e tente novamente.");
+      ToastAlerta("Erro ao salvar a categoria. Verifique os campos e tente novamente.", "erro");
     }
   }
 

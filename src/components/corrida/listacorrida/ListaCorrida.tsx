@@ -4,7 +4,8 @@ import { SyncLoader } from "react-spinners";
 import type Corrida from "../../../models/Corrida";
 import CardCorrida from "../cardCorrida/CardCorrida";
 import FormCorrida from "../fomsCorrida/FormsCorrida";
-// import {ToastAlerta} from "../../../utils/ToastAlerta"
+import { ToastAlerta } from "../../../utils/ToastAlerta";
+
 
 const ListaCorrida = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -23,8 +24,7 @@ const ListaCorrida = () => {
 
       await buscar("/corridas", setCorridas);
     } catch (error: any) {
-      alert("não há Corridas");
-      // ToastAlerta("Não há Corridas!", 'erro')
+      ToastAlerta("Não há Corridas!", 'erro')
     } finally {
       setIsLoading(false);
     }

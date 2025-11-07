@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ClipLoader } from "react-spinners";
 import type Corrida from "../../../models/Corrida";
 import { buscar } from "../../../services/Service";
+import { ToastAlerta } from "../../../utils/ToastAlerta";
 
 function CancelarCorrida() {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ function CancelarCorrida() {
       await buscar(`/corridas/${id}`, setCorrida);
     } catch (error: any) {
       if (error.toString().includes("401")) {
-        alert(error);
+        ToastAlerta(error, "erro");
       }
     }
   }
@@ -37,7 +38,7 @@ function CancelarCorrida() {
       cancelada: true,
     });
 
-    alert("Corrida cancelada.");
+    ToastAlerta("Corrida cancelada.", "sucesso");
     setIsLoading(false);
     retornar();
   }
