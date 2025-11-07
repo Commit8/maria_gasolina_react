@@ -6,7 +6,11 @@ import { atualizar, buscar, cadastrar } from "../../../services/Service";
 import { ToastAlerta } from "../../../utils/ToastAlerta";
 import { ClipLoader } from "react-spinners";
 
-function FormCorrida() {
+interface FormCorridaProps {
+  corridaSelecionada?: import("../../../models/Corrida").default;
+}
+
+function FormCorrida({ corridaSelecionada }: FormCorridaProps) {
   const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -59,6 +63,16 @@ function FormCorrida() {
     }
   }, [id]);
 
+  // Se receber uma corrida selecionada via props (lista), preenche o estado local
+  useEffect(() => {
+    if (corridaSelecionada) {
+      setCorrida(corridaSelecionada);
+      // também preenche a categoria local, para manter o select coerente
+      if (corridaSelecionada.categoria)
+        setCategoria(corridaSelecionada.categoria);
+    }
+  }, [corridaSelecionada]);
+
   useEffect(() => {
     setCorrida({ ...corrida, categoria: categoria });
   }, [categoria]);
@@ -72,14 +86,15 @@ function FormCorrida() {
   }
 
   function retornar() {
-    navigate(`/atualizarcorrida/${corrida.id}`);
+    navigate("/corridas");
   }
 
-  async function gerarNovaCorrida(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  async function gerarNovaCorrida(e?: FormEvent<HTMLFormElement>) {
+    if (e && typeof e.preventDefault === "function") e.preventDefault();
     setIsLoading(true);
 
-    if (id !== undefined) {
+    // Decide atualizar ou cadastrar com base no id presente no estado corrida
+    if (corrida && corrida.id !== undefined && corrida.id !== 0) {
       try {
         await atualizar(`/corridas`, corrida, setCorrida);
 
@@ -112,7 +127,7 @@ function FormCorrida() {
   return (
     <div className="container flex flex-col mx-auto items-center text-black">
       <h1 className="text-4xl text-center my-8">
-        {id !== undefined ? "Editar Corrida" : "Cadastrar Corrida"}
+        {corrida && corrida.id ? "Editar Corrida" : "Cadastrar Corrida"}
       </h1>
 
       <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaCorrida}>
@@ -123,7 +138,7 @@ function FormCorrida() {
             placeholder="Selecione o valor em Km's"
             name="distancia"
             required
-            className="border-2 border-slate-700 rounded p-2"
+            className="border-2 border-[#D97652] rounded p-2"
             value={corrida.distancia}
             onChange={(e: ChangeEvent<HTMLInputElement>) => atualizarEstado(e)}
           />
@@ -133,7 +148,7 @@ function FormCorrida() {
           <select
             name="categoria"
             id="categoria"
-            className="border p-2 border-slate-800 rounded"
+            className="border-2 p-2 border-[#D97652] rounded"
             onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
           >
             <option value="" selected disabled>
@@ -148,7 +163,7 @@ function FormCorrida() {
         </div>
         <button
           type="submit"
-          className="rounded disabled:bg-slate-200 bg-indigo-400 hover:bg-indigo-800
+          className="rounded disabled:bg-slate-200 bg-[#D97652] hover:bg-[#cf4310]
                                text-white font-bold w-1/2 mx-auto py-2 flex justify-center"
           disabled={carregandoVeiculo}
         >
@@ -157,7 +172,7 @@ function FormCorrida() {
           ) : (
             <div>
               {corrida.valorcorrida}
-              <span>{id === undefined ? "Cadastrar" : "Atualizar"}</span>
+              <span>{corrida && corrida.id ? "Atualizar" : "Cadastrar"}</span>
             </div>
           )}
         </button>
