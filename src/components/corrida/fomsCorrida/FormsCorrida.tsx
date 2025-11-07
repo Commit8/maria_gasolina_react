@@ -121,12 +121,18 @@ function FormCorrida({
       }
     }
     setIsLoading(false);
-    retornar();
+    setCorrida({
+      id: 0,
+      distancia: " ",
+      valorCorrida: " ",
+      categoria: {} as Categoria,
+    });
+
+    setCategoria({} as Categoria);
+    ToastAlerta("A Corrida foi cadastrada!", "sucesso");
   }
 
   const carregandoVeiculo = categoria.veiculo === "";
-
-  
 
   return (
     <div className="container flex flex-col mx-auto items-center text-black">
