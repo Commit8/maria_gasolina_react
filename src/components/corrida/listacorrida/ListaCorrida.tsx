@@ -17,7 +17,7 @@ const ListaCorrida = () => {
         try{
             setIsLoading(true);
 
-            await buscar("/corridas", setCorridas)
+            await buscar("/corridas", corridas, setCorridas)
         } catch(error: any){
             alert('não há Corridas')
             // ToastAlerta("Não há Corridas!", 'erro')

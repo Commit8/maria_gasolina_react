@@ -21,7 +21,9 @@ function FormCategoria() {
   }
 
   useEffect(() => {
-    if (id !== undefined) buscarPorId(id);
+    if (id !== undefined){
+       buscarPorId(id);
+    } 
   }, [id]);
 
   function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
@@ -37,7 +39,7 @@ function FormCategoria() {
 
     try {
       if (id !== undefined) {
-        await atualizar(`/categorias/${categoria.id}`, categoria, setCategoria);
+        await atualizar(`/categorias`, categoria, setCategoria);
         alert("Categoria atualizada com sucesso!");
       } else {
         await cadastrar(`/categorias`, categoria, setCategoria);
