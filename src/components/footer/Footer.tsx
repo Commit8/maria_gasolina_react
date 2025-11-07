@@ -6,7 +6,7 @@ function Footer() {
   return (
     <>
       <div className="flex bg-[linear-gradient(135deg,#0D0D0D_0%,#76A687_40%,#D97652_100%)] text-white">
-        <div className="w-full flex text-xl justify-between items-center py-1.5 font-yusei">
+        <div className="w-full flex text-xl justify-between items-center py-1.5 font-yusei flex-col sm:flex-row">
           <div className="flex items-center">
             <img
               src="https://i.imgur.com/NKTrcQT.png"
