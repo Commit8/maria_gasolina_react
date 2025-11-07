@@ -6,7 +6,6 @@ import ClipLoader from "react-spinners/ClipLoader";
 import type Categoria from "../../../models/Categoria";
 import { buscar, deletar } from "../../../services/Service";
 
-
 function DeletarCategoria() {
     const navigate = useNavigate();
 
