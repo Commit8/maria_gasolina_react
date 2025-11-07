@@ -142,11 +142,11 @@ function FormCorrida({
 
       <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaCorrida}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="distancia">distancia Km's proposta:</label>
+          <label htmlFor="distancia">Distância proposta em KMs:</label>
           <input
             type="number"
             min="0"
-            placeholder="Selecione o valor em Km's"
+            placeholder="Insira a distância em KMs"
             name="distancia"
             required
             className="border-2 border-[#D97652] rounded p-2"
@@ -155,7 +155,7 @@ function FormCorrida({
           />
         </div>
         <div className="flex flex-col gap-2">
-          <p>Veiculo Utilizado</p>
+          <p>Veículo utilizado</p>
           <select
             name="categoria"
             id="categoria"
@@ -163,7 +163,7 @@ function FormCorrida({
             onChange={(e) => buscarCategoriaPorId(e.currentTarget.value)}
           >
             <option value="" selected disabled>
-              Selecione um Veiculo
+              Selecione um veículo
             </option>
             {categorias.map((categoria) => (
               <>
@@ -173,7 +173,7 @@ function FormCorrida({
           </select>
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="valorCorrida">Valor Sugerido</label>
+          <label htmlFor="valorCorrida">Valor sugerido</label>
           <div className="border-2 p-2 border-[#D97652] rounded text-center">
             <output>{corrida.valorCorrida}</output>
           </div>

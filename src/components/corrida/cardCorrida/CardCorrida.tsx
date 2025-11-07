@@ -33,8 +33,8 @@ function CardCorrida({ corrida, onEdit }: CardCorridaProps) {
         />
         <div className=" w-full mx-9">
           {" "}
-          <p>Veículo escolido: {corrida.categoria?.veiculo}</p>
-          <p>Distancia Media: {corrida.distancia} Km</p>
+          <p>Veículo escolhido: {corrida.categoria?.veiculo}</p>
+          <p>Distância média: {corrida.distancia} Km</p>
           <p>
             Criado em{" "}
             {new Intl.DateTimeFormat("pt-br", {
@@ -42,7 +42,7 @@ function CardCorrida({ corrida, onEdit }: CardCorridaProps) {
               timeStyle: "medium",
             }).format(new Date(dataCriacao))}
           </p>
-          <p>Valor Sugerido: R${corrida.valorCorrida}</p>
+          <p>Valor sugerido: R${corrida.valorCorrida}</p>
           <hr className="border-white w-full" />
         </div>
 
