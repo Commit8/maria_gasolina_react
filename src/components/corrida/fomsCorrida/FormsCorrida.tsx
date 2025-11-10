@@ -142,11 +142,13 @@ function FormCorrida({
 
       <form className="flex flex-col w-1/2 gap-4" onSubmit={gerarNovaCorrida}>
         <div className="flex flex-col gap-2">
-          <label htmlFor="distancia">Distância proposta em KMs:</label>
+          <label htmlFor="distancia">Distância proposta em Km:</label>
           <input
+            step="0.01" 
             type="number"
             min="0"
-            placeholder="Insira a distância em KMs"
+            inputMode="decimal"
+            placeholder="Insira a distância em Km"
             name="distancia"
             required
             className="border-2 border-[#D97652] rounded p-2"
