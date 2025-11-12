@@ -1,6 +1,6 @@
 # 🚗 Maria Gasolina – Front‑End  
 Interface cliente do sistema de carona compartilhada **Maria Gasolina**  
-** [Acesse o back-end clicando aqui](https://github.com/Commit8/maria_gasolina) **
+[Acesse o back-end clicando aqui](https://github.com/Commit8/maria_gasolina)
 
 ## 📋 Sobre o Projeto  
 O **Maria Gasolina** é um sistema de caronas compartilhadas desenvolvido para conectar motoristas e passageiros que desejam dividir custos de combustível e contribuir para uma mobilidade mais sustentável.  
